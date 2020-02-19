@@ -17,8 +17,8 @@
 			</button>
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
 				<ul class="navbar-nav mr-auto">
-					<li class="nav-item ">
-						<a class="nav-link" href="{% url 'about' %}">About <span class="sr-only">(current)</span></a>
+					<li class="nav-item active">
+						<a class="nav-link" href="#">About <span class="sr-only">(current)</span></a>
 					</li>
 					<li class="nav-item">
 						<a class="nav-link" target="_blank" href="https://www.codechef.com/users/anil_">CodeChef</a>
@@ -30,25 +30,10 @@
 			</div>
 		</nav>
 		<div class="container">
-			<h1>{{ post.title }}</h1>
-			<h5><i class="fas fa-clock"></i>  {{post.pub_date_pretty}}</h5>
-			<img src="{{post.image.url}}" class="d-block mx-auto w-100" alt="post image">
-			<p>{{post.body}}</p>
-			<div id="disqus_thread"></div>
-			<script>
-			
-			var disqus_config = function () {
-			this.page.identifier = 'post-{{post.id}}' ; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-			};
-			
-			(function() { // DON'T EDIT BELOW THIS LINE
-			var d = document, s = d.createElement('script');
-			s.src = 'https://anils-blog.disqus.com/embed.js';
-			s.setAttribute('data-timestamp', +new Date());
-			(d.head || d.body).appendChild(s);
-			})();
-			</script>
-			<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+			<br>
+			<h1>About</h1>
+			<br>
+			<p>This website is desgined using django. It's a basic blog developed to learn django skills. </p>
 		</div>
 		
 		<!-- Optional JavaScript -->

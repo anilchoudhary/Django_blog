@@ -1,19 +1,57 @@
-<h1>Anil's Blog</h1>
-
-<h2>Lastest Posts</h2>
-
-{% for post in posts.all %}
-
-<b><a href="{% url 'post_detail' post.id %} ">{{ post.title }}</a></b>
-<br>
-{{post.pub_date_pretty}}
-<br>
-
-<img src="{{post.image.url}}" witdth="200px" height="200px" alt="post image">
-
-<br>
-{{post.summary}}
-<br>
-<br>
-
-{% endfor %}
+<!doctype html>
+<html lang="en">
+	<head>
+		<!-- Required meta tags -->
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<!-- Bootstrap CSS -->
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+		<title>Anil's Blog</title>
+	</head>
+	<body>
+		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+			<a class="navbar-brand" href="{% url 'home' %}"><h2>Anil's Blog</h2></a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item ">
+						<a class="nav-link" href="{% url 'about' %}">About <span class="sr-only">(current)</span></a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" target="_blank" href="https://www.codechef.com/users/anil_">CodeChef</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" target="_blank" href="https://github.com/anilchoudhary">Github</a>
+					</li>
+				</ul>
+			</div>
+		</nav>
+		<div class="container">
+			<h2 class="text-center">Welcome to Anil's Blog!</h2>
+			{% load static %}
+			<div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+				<div class="carousel-inner">
+					<div class="carousel-item active">
+						<img src="{% static 'posts/home.jpg' %}" height="500px" class="d-block mx-auto w-100" alt="...">
+					</div>
+				</div>
+			</div>
+			<h3>Lastest Posts</h3>
+			{% for post in posts.all %}
+				<b><a href="{% url 'post_detail' post.id %} "><h3>{{ post.title }}</h3></a></b>
+				<h4><i class="fas fa-clock"></i> {{post.pub_date_pretty}}</h4>
+				<img src="{{post.image.url}}" class="img-responsive rounded mx-auto d-block" witdth="200px" height="200px" alt="post image">
+				<p>{{post.summary}}</p>
+			{% endfor %}
+		</div>
+		
+		<!-- Optional JavaScript -->
+		<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+		<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+	</body>
+</html>
